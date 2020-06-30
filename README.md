@@ -1,1 +1,3 @@
-# davids_repo
+### davids_repo
+
+-storing my practice code and problems
