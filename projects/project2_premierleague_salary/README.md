@@ -1,7 +1,7 @@
-project2_premierleague_salaries
+Project2 - Projecting Premier League Players' Salaries with Linear Regression
 ==============================
 
-Projecting Premier League players' salaries using linear regressioon modeling
+Using Premier Leaugue players' statistics from the 2018-2019 season, I created a linear regression model that aims to predict a players' salary given certain quantitative player statistics.
 
 Project Organization
 ------------
