@@ -12,8 +12,8 @@ Projecting Premier League Players' Salaries with Linear Regression
 ### Setup
 
 #### 1) Access **project2_premleague_salary_stats.ipynb** in the notebooks folder to follow the web scraping
-* The exported csv files are available in the notebook_exports folder
 * *Please note*, the exported file (premleague_salary_stats.csv) was unable to scrape every available player salary due to time contraints. Thus, some available salaries were manually entered and are available in premleague_salary_stats_edited.csv. This edited csv is the one that is used for linear regression modeling.
+* The exported csv files are available in the notebook_exports folder:
 <pre><code>https://github.com/eunchanity/davids_repo/tree/master/projects/project2_premierleague_salary/notebooks/notebook_exports</code></pre>
 
 
