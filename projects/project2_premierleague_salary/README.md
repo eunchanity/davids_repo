@@ -1,57 +1,31 @@
-Project2 - Projecting Premier League Players' Salaries with Linear Regression
+Projecting Premier League Players' Salaries with Linear Regression
 ==============================
 
-Using Premier Leaugue players' statistics from the 2018-2019 season, I created a linear regression model that aims to predict a players' salary given certain quantitative player statistics.
+### Project 2 at [Metis](www.thisismetis.com)
+**Objective**: Build a linear regression model to predict Premier League players' salaries using quantitative player statistics.
 
-Project Organization
-------------
+**Tools**:
+- Gather data by web scraping players' statistics
+- Select a model through cross-validation
+- Optimize features and hyper-parameters through ridge regression and additional model tuning
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+## Setup
+
+#### 1) Access **project2_premleague_salary_stats.ipynb** in the notebooks folder to follow the web scraping
+	* The exported csv files are available in the notebook_exports folder
+	* *Please note*, the exported file (premleague_salary_stats.csv) was unable to scrape every available player salary due to time contraints. Thus, some available salaries were manually entered and are available in premleague_salary_stats_edited.csv. This edited csv is the one that is used for linear regression modeling.
+
+#### 2) Access **project2_premleague_salary_linreg.ipynb** in the notebooks folder to follow the linear regression modeling
+	* Model selection through cross-validation
+	* Model tuning through feature selection, hyper-parameter optimization, and log transformation
+	* Model testing
+	* Interpretation of results
+
+#### 3) Access **project2_premleague_salary.pdf** in the reports folder to follow the presentation deck
+	* Presentation of model creation and model outputs
+	* Implications of the model's results
+	* Additional considerations
+
 
 
 --------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
