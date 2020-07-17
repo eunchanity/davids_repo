@@ -1,4 +1,4 @@
-Projecting Premier League Players' Salaries with Linear Regression
+Predicting Premier League Players' Salaries with Linear Regression
 ==============================
 
 ## Project 2 at [Metis](www.thisismetis.com)
