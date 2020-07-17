@@ -1,3 +1,3 @@
 ### davids_repo
 
-storing my practice code and problems
+storing my projects, scripts, and practice code
