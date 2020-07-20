@@ -27,7 +27,8 @@ Predicting Premier League Players' Salaries with Linear Regression
 * Presentation of model creation and model outputs
 * Implications of the model's results
 * Additional considerations
-
+* The presentation can also be followed in my blog:
+<pre><code></code></pre>
 
 
 --------
