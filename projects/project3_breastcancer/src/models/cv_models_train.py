@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold
 from sklearn.neighbors import KNeighborsClassifier
@@ -17,16 +18,11 @@ from sklearn.metrics import (
 )
 
 
-def crossval_knn_scores(X, y):
+def crossval_knn_scores(X_trainval, y_trainval):
     """
-    input: X (dataframe) of features, y(series) of target
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
     output: accuracy, precision, recall, f1, roc/auc scores for k nearest neighbors model (after cross validation)
     """
-    # splitting data into train/val and test sets
-    X_trainval, X_test, y_trainval, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=71
-    )
-
     # splitting into train and val sets
     kf = KFold(n_splits=5, shuffle=True, random_state=71)
     (
@@ -44,15 +40,21 @@ def crossval_knn_scores(X, y):
         [],
         [],
     )
-    X_trainval, y_trainval = np.array(X), np.array(y)
-    for train_ind, val_ind in kf.split(X, y):
+    X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
+    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
         # k nearest neighbors
-        knn = KNeighborsClassifier(n_neighbors=6)
-        knn.fit(X_train, y_train)
-        y_predict = knn.predict(X_val)
+        knn = KNeighborsClassifier()
+
+        # feature scaling
+        scaler = StandardScaler()
+        X_trainscaled = scaler.fit_transform(X_train)
+        X_valscaled = scaler.transform(X_val)
+
+        knn.fit(X_trainscaled, y_train)
+        y_predict = knn.predict(X_valscaled)
 
         # accuracy, precision, recall, f1, roc/auc scores
         cv_knn_accuracy.append(accuracy_score(y_val, y_predict))
@@ -63,7 +65,7 @@ def crossval_knn_scores(X, y):
             recall_score(y_val, y_predict, average="binary", pos_label=1)
         )
         cv_knn_f1.append(f1_score(y_val, y_predict, average="binary", pos_label=1))
-        cv_knn_rocauc.append(roc_auc_score(y_val, knn.predict_proba(X_val)[:, 1]))
+        cv_knn_rocauc.append(roc_auc_score(y_val, knn.predict_proba(X_valscaled)[:, 1]))
 
     # create mean for cv scores
     accuracy_mean = {}
@@ -91,16 +93,11 @@ def crossval_knn_scores(X, y):
     return cv_knn_scores
 
 
-def crossval_logit_scores(X, y):
+def crossval_logit_scores(X_trainval, y_trainval):
     """
-    input: X (dataframe) of features, y(series) of target
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
     output: accuracy, precision, recall, f1, roc/auc scores for logistic regression model (after cross validation)
     """
-    # splitting data into train/val and test sets
-    X_trainval, X_test, y_trainval, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=71
-    )
-
     # splitting into train and val sets
     kf = KFold(n_splits=5, shuffle=True, random_state=71)
     (
@@ -118,15 +115,21 @@ def crossval_logit_scores(X, y):
         [],
         [],
     )
-    X_trainval, y_trainval = np.array(X), np.array(y)
-    for train_ind, val_ind in kf.split(X, y):
+    X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
+    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
         # logistic regression
         logit = LogisticRegression()
-        logit.fit(X_train, y_train)
-        y_predict = logit.predict(X_val)
+
+        # feature scaling
+        scaler = StandardScaler()
+        X_trainscaled = scaler.fit_transform(X_train)
+        X_valscaled = scaler.transform(X_val)
+
+        logit.fit(X_trainscaled, y_train)
+        y_predict = logit.predict(X_valscaled)
 
         # accuracy, precision, recall, f1 scores
         cv_logit_accuracy.append(accuracy_score(y_val, y_predict))
@@ -137,7 +140,9 @@ def crossval_logit_scores(X, y):
             recall_score(y_val, y_predict, average="binary", pos_label=1)
         )
         cv_logit_f1.append(f1_score(y_val, y_predict, average="binary", pos_label=1))
-        cv_logit_rocauc.append(roc_auc_score(y_val, logit.predict_proba(X_val)[:, 1]))
+        cv_logit_rocauc.append(
+            roc_auc_score(y_val, logit.predict_proba(X_valscaled)[:, 1])
+        )
 
     # create mean for cv scores
     accuracy_mean = {}
@@ -165,16 +170,11 @@ def crossval_logit_scores(X, y):
     return cv_logit_scores
 
 
-def crossval_dtc_scores(X, y):
+def crossval_dtc_scores(X_trainval, y_trainval):
     """
-    input: X (dataframe) of features, y(series) of target
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
     output: accuracy, precision, recall, f1, roc/auc scores for decision tree model (after cross validation)
     """
-    # splitting data into train/val and test sets
-    X_trainval, X_test, y_trainval, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=71
-    )
-
     # splitting into train and val sets
     kf = KFold(n_splits=5, shuffle=True, random_state=71)
     (
@@ -192,8 +192,8 @@ def crossval_dtc_scores(X, y):
         [],
         [],
     )
-    X_trainval, y_trainval = np.array(X), np.array(y)
-    for train_ind, val_ind in kf.split(X, y):
+    X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
+    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
@@ -239,16 +239,11 @@ def crossval_dtc_scores(X, y):
     return cv_dtc_scores
 
 
-def crossval_rfc_scores(X, y):
+def crossval_rfc_scores(X_trainval, y_trainval):
     """
-    input: X (dataframe) of features, y(series) of target
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
     output: accuracy, precision, recall, f1, roc/auc scores for random forest model (after cross validation)
     """
-    # splitting data into train/val and test sets
-    X_trainval, X_test, y_trainval, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=71
-    )
-
     # splitting into train and val sets
     kf = KFold(n_splits=5, shuffle=True, random_state=71)
     (
@@ -266,8 +261,8 @@ def crossval_rfc_scores(X, y):
         [],
         [],
     )
-    X_trainval, y_trainval = np.array(X), np.array(y)
-    for train_ind, val_ind in kf.split(X, y):
+    X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
+    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
@@ -313,16 +308,11 @@ def crossval_rfc_scores(X, y):
     return cv_rfc_scores
 
 
-def crossval_svm_scores(X, y):
+def crossval_svm_scores(X_trainval, y_trainval):
     """
-    input: X (dataframe) of features, y(series) of target
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
     output: accuracy, precision, recall, f1, roc/auc scores for support vector machine model (after cross validation)
     """
-    # splitting data into train/val and test sets
-    X_trainval, X_test, y_trainval, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=71
-    )
-
     # splitting into train and val sets
     kf = KFold(n_splits=5, shuffle=True, random_state=71)
     (
@@ -340,15 +330,21 @@ def crossval_svm_scores(X, y):
         [],
         [],
     )
-    X_trainval, y_trainval = np.array(X), np.array(y)
-    for train_ind, val_ind in kf.split(X, y):
+    X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
+    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
         # support vector machine
         svm = SVC(probability=True)
-        svm.fit(X_train, y_train)
-        y_predict = svm.predict(X_val)
+
+        # feature scaling
+        scaler = StandardScaler()
+        X_trainscaled = scaler.fit_transform(X_train)
+        X_valscaled = scaler.transform(X_val)
+
+        svm.fit(X_trainscaled, y_train)
+        y_predict = svm.predict(X_valscaled)
 
         # accuracy, precision, recall, f1 scores
         cv_svm_accuracy.append(accuracy_score(y_val, y_predict))
@@ -359,7 +355,7 @@ def crossval_svm_scores(X, y):
             recall_score(y_val, y_predict, average="binary", pos_label=1)
         )
         cv_svm_f1.append(f1_score(y_val, y_predict, average="binary", pos_label=1))
-        cv_svm_rocauc.append(roc_auc_score(y_val, svm.predict_proba(X_val)[:, 1]))
+        cv_svm_rocauc.append(roc_auc_score(y_val, svm.predict_proba(X_valscaled)[:, 1]))
 
     # create mean for cv scores
     accuracy_mean = {}
@@ -387,16 +383,11 @@ def crossval_svm_scores(X, y):
     return cv_svm_scores
 
 
-def crossval_gnb_scores(X, y):
+def crossval_gnb_scores(X_trainval, y_trainval):
     """
-    input: X (dataframe) of features, y(series) of target
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
     output: accuracy, precision, recall, f1, roc/auc scores for gaussian naive bayes model (after cross validation)
     """
-    # splitting data into train/val and test sets
-    X_trainval, X_test, y_trainval, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=71
-    )
-
     # splitting into train and val sets
     kf = KFold(n_splits=5, shuffle=True, random_state=71)
     (
@@ -414,8 +405,8 @@ def crossval_gnb_scores(X, y):
         [],
         [],
     )
-    X_trainval, y_trainval = np.array(X), np.array(y)
-    for train_ind, val_ind in kf.split(X, y):
+    X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
+    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
