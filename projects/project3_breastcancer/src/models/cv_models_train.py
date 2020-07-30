@@ -1,8 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import KFold
+from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
@@ -20,11 +19,11 @@ from sklearn.metrics import (
 
 def crossval_knn_scores(X_trainval, y_trainval):
     """
-    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after trainval/test split
     output: accuracy, precision, recall, f1, roc/auc scores for k nearest neighbors model (after cross validation)
     """
     # splitting into train and val sets
-    kf = KFold(n_splits=5, shuffle=True, random_state=71)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=71)
     (
         cv_knn_accuracy,
         cv_knn_precision,
@@ -41,7 +40,7 @@ def crossval_knn_scores(X_trainval, y_trainval):
         [],
     )
     X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
-    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
+    for train_ind, val_ind in skf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
@@ -95,11 +94,11 @@ def crossval_knn_scores(X_trainval, y_trainval):
 
 def crossval_logit_scores(X_trainval, y_trainval):
     """
-    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after trainval/test split
     output: accuracy, precision, recall, f1, roc/auc scores for logistic regression model (after cross validation)
     """
     # splitting into train and val sets
-    kf = KFold(n_splits=5, shuffle=True, random_state=71)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=71)
     (
         cv_logit_accuracy,
         cv_logit_precision,
@@ -116,7 +115,7 @@ def crossval_logit_scores(X_trainval, y_trainval):
         [],
     )
     X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
-    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
+    for train_ind, val_ind in skf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
@@ -172,11 +171,11 @@ def crossval_logit_scores(X_trainval, y_trainval):
 
 def crossval_dtc_scores(X_trainval, y_trainval):
     """
-    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after trainval/test split
     output: accuracy, precision, recall, f1, roc/auc scores for decision tree model (after cross validation)
     """
     # splitting into train and val sets
-    kf = KFold(n_splits=5, shuffle=True, random_state=71)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=71)
     (
         cv_dtc_accuracy,
         cv_dtc_precision,
@@ -193,7 +192,7 @@ def crossval_dtc_scores(X_trainval, y_trainval):
         [],
     )
     X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
-    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
+    for train_ind, val_ind in skf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
@@ -241,11 +240,11 @@ def crossval_dtc_scores(X_trainval, y_trainval):
 
 def crossval_rfc_scores(X_trainval, y_trainval):
     """
-    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after trainval/test split
     output: accuracy, precision, recall, f1, roc/auc scores for random forest model (after cross validation)
     """
     # splitting into train and val sets
-    kf = KFold(n_splits=5, shuffle=True, random_state=71)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=71)
     (
         cv_rfc_accuracy,
         cv_rfc_precision,
@@ -262,7 +261,7 @@ def crossval_rfc_scores(X_trainval, y_trainval):
         [],
     )
     X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
-    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
+    for train_ind, val_ind in skf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
@@ -310,11 +309,11 @@ def crossval_rfc_scores(X_trainval, y_trainval):
 
 def crossval_svm_scores(X_trainval, y_trainval):
     """
-    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after trainval/test split
     output: accuracy, precision, recall, f1, roc/auc scores for support vector machine model (after cross validation)
     """
     # splitting into train and val sets
-    kf = KFold(n_splits=5, shuffle=True, random_state=71)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=71)
     (
         cv_svm_accuracy,
         cv_svm_precision,
@@ -331,7 +330,7 @@ def crossval_svm_scores(X_trainval, y_trainval):
         [],
     )
     X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
-    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
+    for train_ind, val_ind in skf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 
@@ -385,11 +384,11 @@ def crossval_svm_scores(X_trainval, y_trainval):
 
 def crossval_gnb_scores(X_trainval, y_trainval):
     """
-    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after train/test split
+    input: X_trainval (dataframe) of features after trainval/test split, y_trainval (series) of target after trainval/test split
     output: accuracy, precision, recall, f1, roc/auc scores for gaussian naive bayes model (after cross validation)
     """
     # splitting into train and val sets
-    kf = KFold(n_splits=5, shuffle=True, random_state=71)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=71)
     (
         cv_gnb_accuracy,
         cv_gnb_precision,
@@ -406,7 +405,7 @@ def crossval_gnb_scores(X_trainval, y_trainval):
         [],
     )
     X_trainval, y_trainval = np.array(X_trainval), np.array(y_trainval)
-    for train_ind, val_ind in kf.split(X_trainval, y_trainval):
+    for train_ind, val_ind in skf.split(X_trainval, y_trainval):
         X_train, y_train = X_trainval[train_ind], y_trainval[train_ind]
         X_val, y_val = X_trainval[val_ind], y_trainval[val_ind]
 

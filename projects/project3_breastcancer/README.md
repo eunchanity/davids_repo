@@ -1,57 +1,38 @@
-project3_breast_cancer
+Predicting Benign or Malignant Breast Cancer
 ==============================
 
-determine if a patient has benign or malignant breast cancer
+## Project 3 at [Metis](www.thisismetis.com)
+**Objective**: Build a classification model to predict whether a breast cancer cell will be benign or malignant based on cell characteristics.
 
-Project Organization
-------------
+**Overview**:
+- Acquire dataset and create a database in postgresql on an AWS machine
+- Access database using SQLalchemy
+- Select a classification model through cross-validation:
+	- k-nearest neighbors, logistic regression, decision tree, random forest, gaussian naive bayes, support vector machine
+- Tune selected model through hyperparameters, threshold, class imbalance, feature selection
+- Interpret data: confusion matrix, precision, model coefficients
+- Visualize data: Tableau, Flask
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+### Setup
+
+#### 1) Access project3_breastcancer.ipynb in the notebooks folder to follow data analysis and modeling
+* Database import using SQLalchemy
+* Model selection through cross-validation
+* Model tuning through class weight adjustment, hyperparameter optimization, feature selection
+* Interpretation of results
+
+#### 2) Access the models in the src/models folder to follow the modeling process and code 
+* Cross-validation on train set
+* Cross-validation on train set with adjusted class weights
+* Logistic regression on test set
+<pre><code>https://github.com/eunchanity/davids_repo/tree/master/projects/project3_breastcancer/src/models</code></pre>
+
+#### 3) Access project3_breastcancer.pdf in the reports folder to follow the presentation deck
+* Presentation of model creation and model outputs
+* Implications of the model's results
+* Additional considerations
+* The presentation can also be followed in my blog:
+<pre><code>https://eunchanity.github.io/2020/08/05/Breast-Cancer/</code></pre>
 
 
 --------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
