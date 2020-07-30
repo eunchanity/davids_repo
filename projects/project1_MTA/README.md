@@ -1,7 +1,7 @@
 Optimizing Outreach with NYC MTA Data
 ==============================
 
-## Project 1 at [Metis](www.thisismetis.com)
+## Project 1 at Metis
 **Objective**: Optimize the effectiveness of a client's street tream in order to raise awareness for the client's gala this summer. The teams will be strategicially placed at subway station entrances to collect email addresses.
 
 **Overview**:

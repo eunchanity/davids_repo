@@ -1,7 +1,7 @@
 Predicting Benign or Malignant Breast Cancer
 ==============================
 
-## Project 3 at [Metis](www.thisismetis.com)
+## Project 3 at Metis
 **Objective**: Build a classification model to predict whether a breast cancer cell will be benign or malignant based on cell characteristics.
 
 **Overview**:

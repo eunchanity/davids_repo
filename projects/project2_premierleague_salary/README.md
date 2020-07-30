@@ -1,7 +1,7 @@
 Predicting Premier League Players' Salaries with Linear Regression
 ==============================
 
-## Project 2 at [Metis](www.thisismetis.com)
+## Project 2 at Metis
 **Objective**: Build a linear regression model to predict Premier League players' salaries using quantitative player statistics.
 
 **Overview**:
