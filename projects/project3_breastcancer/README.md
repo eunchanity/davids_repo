@@ -25,14 +25,11 @@ Predicting Benign or Malignant Breast Cancer
 * Cross-validation on train set
 * Cross-validation on train set with adjusted class weights
 * Logistic regression on test set
-<pre><code>https://github.com/eunchanity/davids_repo/tree/master/projects/project3_breastcancer/src/models</code></pre>
 
 #### 3) Access project3_breastcancer.pdf in the reports folder to follow the presentation deck
 * Presentation of model creation and model outputs
 * Implications of the model's results
 * Additional considerations
-* The presentation can also be followed in my blog:
-<pre><code>https://eunchanity.github.io/2020/08/05/Breast-Cancer/</code></pre>
-
+* The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/2020/08/05/Breast-Cancer/" target="_blank">Predicting Malignant/Benign Breast Cancer Tumors</a><br/>
 
 --------

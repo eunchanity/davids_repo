@@ -24,10 +24,6 @@ Optimizing Outreach with NYC MTA Data
 * External data sourcing
 * Target population identification
 * Optimizing outreach locations, days, times
-* The presentation can also be followed in my blog:
-<pre><code>https://eunchanity.github.io/2020/07/06/MTA/</code></pre>
-
-
-
+* The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/2020/07/06/MTA/" target="_blank">Optimizing Outreach with NYC MTA Data Blog Post</a><br/>
 
 --------
