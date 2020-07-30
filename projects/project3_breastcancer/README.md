@@ -30,6 +30,6 @@ Predicting Benign or Malignant Breast Cancer
 * Presentation of model creation and model outputs
 * Implications of the model's results
 * Additional considerations
-* The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/2020/08/05/Breast-Cancer/" target="_blank">Predicting Malignant/Benign Breast Cancer Tumors</a><br/>
+* The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/2020/08/05/Breast-Cancer/" target="_blank">Predicting Malignant/Benign Tumors for Breast Cancer</a><br/>
 
 --------
