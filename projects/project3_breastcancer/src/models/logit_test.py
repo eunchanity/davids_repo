@@ -19,7 +19,9 @@ def logit_test(X_train, X_test, y_train, y_test):
     X_trainscaled = scaler.fit_transform(X_train)
     X_testscaled = scaler.transform(X_test)
 
-    logit = LogisticRegression(solver="liblinear", class_weight={1: 2, 0: 1})
+    logit = LogisticRegression(
+        C=46, solver="lbfgs", class_weight={1: 2, 0: 1}, max_iter=31
+    )
     logit.fit(X_trainscaled, y_train)
     y_predict = logit.predict(X_testscaled)
 

@@ -26,7 +26,12 @@ Predicting Benign/Malignant Tumors for Breast Cancer
 * Cross-validation on train set with adjusted class weights
 * Logistic regression on test set
 
-#### 3) Access project3_breastcancer.pdf in the reports folder to follow the presentation deck
+#### 3) Access the apps/flask folder to test out a local Flask web app 
+* Import the fit logistic regression model, which was saved through pickling
+* Deployment of the model on Flask
+* Predict benign/malignant tumor using user-inputs of tumor characteristics
+
+#### 4) Access project3_breastcancer.pdf in the reports folder to follow the presentation deck
 * Presentation of model creation and model outputs
 * Implications of the model's results
 * Additional considerations

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Benign or Malignant Tumor</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      .button {
+        background-color: LightPink;
+        border: none;
+        color: Black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      .animal-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 10px 10px 0px #eee;
+        width: 300px;
+        margin: auto;
+      }
+    </style>
+  </head>
+
+  <body align="center">
+    <h2>
+      Enter in Tumor Characteristics for Breast Cancer: (1-10) <br />
+      Determine if it is <span style="color: green;">Benign</span> or
+      <span style="color: red;">Malignant</span>
+    </h2>
+
+    <form action="/predict_tumor/" method="post">
+      <div class="animal-card" align="center">
+        Clump Thickness:
+        <br />
+        <input type="text" name="clumpthickness" />
+        <br />
+
+        Uniformity of Cell Size:
+        <br />
+        <input type="text" name="uniformcellsize" />
+        <br />
+
+        Marignal Adhesion:
+        <br />
+        <input type="text" name="margadhesion" />
+        <br />
+
+        Single Epithelial Cell Size:
+        <br />
+        <input type="text" name="epithelial" />
+        <br />
+
+        Bare Nuclei:
+        <br />
+        <input type="text" name="barenuclei" />
+        <br />
+
+        Bland Chromatin:
+        <br />
+        <input type="text" name="blandchromatin" />
+        <br />
+
+        Normal Nucleoli:
+        <br />
+        <input type="text" name="normalnucleoli" />
+        <br />
+
+        Mitoses:
+        <br />
+        <input type="text" name="mitoses" />
+        <br />
+      </div>
+
+      <br />
+
+      <button type="submit" class="button">
+        Find Out the Result
+      </button>
+    </form>
+
+    <br />
+
+    {% if message == "Benign Tumor" %}
+    <h2><span style="color: green;">Benign Tumor</span></h2>
+    {% elif message == "Malignant Tumor" %}
+    <h2><span style="color: red;">Malignant Tumor</span></h2>
+    <!-- <h2>{{message}}</h2> -->
+    {% endif %}
+  </body>
+</html>
