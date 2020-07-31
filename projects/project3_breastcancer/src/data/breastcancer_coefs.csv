@@ -1,9 +1,9 @@
 ,Characteristic,Coefficient
-0,clumpthickness,0.49181694
-1,uniformcellsize,0.24748408
-2,margadhesion,0.24381379
-3,epithelial,0.14264738
-4,barenuclei,0.43265406
-5,blandchromatin,0.3687768
-6,normalnucleoli,0.22642593
-7,mitoses,0.50098694
+0,Clump Thickness,3.96777197
+1,Uniform Cellsize,2.10694368
+2,Marginal Adhesion,1.98650289
+3,Epithelial Size,1.36199339
+4,Bare Nuclei,4.84665669
+5,Bland Chromatin,2.42144904
+6,Normal Nucleoli,1.9815132
+7,Mitoses,2.2749171
