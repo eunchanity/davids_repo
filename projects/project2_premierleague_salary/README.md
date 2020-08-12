@@ -30,6 +30,6 @@
 - Presentation of model creation and model outputs
 - Implications of the model's results
 - Additional considerations
-- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/Premier-League-Salary/" target="_blank">Predicting Premier League Players' Salaries using Machine Learning</a><br/>
+- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/Premier-League-Salary/" target="_blank">Predicting Premier League Players' Salaries with Machine Learning</a><br/>
 
 ---

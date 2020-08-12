@@ -39,6 +39,6 @@
 - Presentation of model creation and model outputs
 - Implications of the model's results
 - Additional considerations
-- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/breast-cancer/" target="_blank">Classifying Breast Cancer Tumors using Machine Learning</a><br/>
+- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/breast-cancer/" target="_blank">Classifying Breast Cancer Tumors with Machine Learning</a><br/>
 
 ---
