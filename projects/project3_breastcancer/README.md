@@ -1,4 +1,4 @@
-# Predicting Benign/Malignant Tumors for Breast Cancer
+# Classifying Benign/Malignant Tumors for Breast Cancer
 
 ## Project 3 at Metis
 
@@ -39,6 +39,6 @@
 - Presentation of model creation and model outputs
 - Implications of the model's results
 - Additional considerations
-- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/breast-cancer/" target="_blank">Predicting Benign/Malignant Tumors for Breast Cancer</a><br/>
+- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/breast-cancer/" target="_blank">Classifying Breast Cancer Tumors using Machine Learning</a><br/>
 
 ---
