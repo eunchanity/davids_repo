@@ -11,7 +11,7 @@
 
 ### Setup
 
-#### 1) Access project1_MTA_data.ipynb in the notebooks folder to follow the MTA data import
+#### 1) Access project1_MTA_data.ipynb in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project4_chopped" target="_blank">project</a><br/> to follow the MTA data import
 
 - Exploratory data analysis
 - Data cleaning
