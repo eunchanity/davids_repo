@@ -31,6 +31,7 @@
 
 - Import the clusters, pickled from the notebook
 - Deployment of the "Chopped Basket Generator" on Streamlit
+- The app has also been made available at https://chopped-basket-generator.herokuapp.com/
 
 #### 4) Access project4_chopped.pdf in the reports folder to follow the presentation deck
 
