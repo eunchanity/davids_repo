@@ -11,19 +11,19 @@
 
 ### Setup
 
-#### 1) Access project1_MTA_data.ipynb in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project4_chopped" target="_blank">project</a><br/> to follow the MTA data import
+#### 1) Access project1_MTA_data.ipynb in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project1_MTA/notebooks" target="_blank">notebooks folder</a> to follow the MTA data import
 
 - Exploratory data analysis
 - Data cleaning
 - Data visualization
 
-#### 2) Access project1_NYC_demographics.ipynb in the notebooks folder to follow the US Census data import
+#### 2) Access project1_NYC_demographics.ipynb in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project1_MTA/notebooks" target="_blank">notebooks folder</a> to follow the US Census data import
 
 - Exploratory data analysis
 - Data cleaning
 - Data visualization
 
-#### 3) Access project1_MTA_presentation in the reports folder to follow the presentation deck
+#### 3) Access project1_MTA_presentation in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project1_MTA/reports" target="_blank">reports folder</a> to follow the presentation deck
 
 - External data sourcing
 - Target population identification
