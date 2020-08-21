@@ -21,13 +21,17 @@ des_dairy_sauces = pickle.load(open("pickle/des3.p", "rb"))
 des_random = pickle.load(open("pickle/des4.p", "rb"))
 des_sugar_snacks = pickle.load(open("pickle/des5.p", "rb"))
 
+# read in pickled cosine similarity matrix
+cos_similarity = pickle.load(open("pickle/cos_similarity.p", "rb"))
+
 # streamlit outline
 st.title('"Chopped" Basket Generator')
-
+st.markdown("---")
 meals = {"Appetizer": "Appetizer", "Entree": "Entree", "Dessert": "Dessert"}
 choice = st.selectbox(
     "Which basket type would you like to create?", list(meals.keys()), 0
 )
+st.markdown("---")
 
 # appetizer selection
 if meals[choice] == "Appetizer":
@@ -39,7 +43,7 @@ if meals[choice] == "Appetizer":
     app4 = st.checkbox("Fruits")
     app5 = st.checkbox("Processed/Sweets")
     app6 = st.checkbox("Sauces/Garnish")
-
+    st.write("")
     if st.button("Generate a Random Basket!"):
 
         def appetizer(app1, app2, app3, app4, app5, app6):
@@ -65,7 +69,26 @@ if meals[choice] == "Appetizer":
 
         choices = appetizer(app1, app2, app3, app4, app5, app6)
         results = random.sample(choices, 4)
-        st.write(results)
+        md_results = f"Your appetizer mystery basket consists of: **{results[0]}**, **{results[1]}**, **{results[2]}**, and **{results[3]}**"
+        st.write("")
+        st.markdown(md_results)
+        st.write(
+            "You have 20 minutes to start and finish your plates. Clock starts now!"
+        )
+        st.markdown("---")
+        st.subheader("Don't have these ingredients?")
+        for result in results:
+            similars = []
+            for elem in (
+                cos_similarity[f"{result}"]
+                .sort_values(ascending=False)
+                .reset_index()
+                .loc[1:3, "index"]
+            ):
+                elem.replace("'", "")
+                similars.append(elem)
+            md_recs = f"Three ingredients similar to {result} are **{similars[0]}** , **{similars[1]}** , and **{similars[2]}**."
+            st.markdown(md_recs)
 
     else:
         st.write("")
@@ -100,7 +123,27 @@ elif meals[choice] == "Entree":
 
         choices = entree(ent1, ent2, ent3, ent4)
         results = random.sample(choices, 4)
-        st.write(results)
+        md_results = f"Your entree mystery basket consists of: **{results[0]}**, **{results[1]}**, **{results[2]}**, and **{results[3]}**"
+        st.write("")
+        st.markdown(md_results)
+        st.write(
+            "You have 30 minutes to start and finish your plates. Clock starts now!"
+        )
+        st.markdown("---")
+        st.subheader("Don't have these ingredients?")
+        for result in results:
+            similars = []
+            for elem in (
+                cos_similarity[f"{result}"]
+                .sort_values(ascending=False)
+                .reset_index()
+                .loc[1:3, "index"]
+            ):
+                elem.replace("'", "")
+                similars.append(elem)
+            md_recs = f"Three ingredients similar to {result} are **{similars[0]}** , **{similars[1]}** , and **{similars[2]}**."
+            st.markdown(md_recs)
+
     else:
         st.write("")
 
@@ -137,6 +180,26 @@ elif meals[choice] == "Dessert":
 
         choices = dessert(des1, des2, des3, des4, des5)
         results = random.sample(choices, 4)
-        st.write(results)
+        md_results = f"Your dessert mystery basket consists of: **{results[0]}**, **{results[1]}**, **{results[2]}**, and **{results[3]}**"
+        st.write("")
+        st.markdown(md_results)
+        st.write(
+            "You have 30 minutes to start and finish your plates. Clock starts now!"
+        )
+        st.markdown("---")
+        st.subheader("Don't have these ingredients?")
+        for result in results:
+            similars = []
+            for elem in (
+                cos_similarity[f"{result}"]
+                .sort_values(ascending=False)
+                .reset_index()
+                .loc[1:3, "index"]
+            ):
+                elem.replace("'", "")
+                similars.append(elem)
+            md_recs = f"Three ingredients similar to {result} are **{similars[0]}** , **{similars[1]}** , and **{similars[2]}**."
+            st.markdown(md_recs)
+
     else:
         st.write("")
