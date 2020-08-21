@@ -38,6 +38,6 @@
 - Presentation of model creation and model outputs
 - Implications of the model's results
 - Additional considerations
-- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/chopped/" target="_blank">Clustering the Mystery Basket Ingredients from the TV Show "Chopped"</a><br/>
+- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/chopped/" target="_blank">Creating a Mystery Basket Generator from the TV Show "Chopped"</a><br/>
 
 ---
