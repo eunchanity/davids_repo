@@ -1,4 +1,4 @@
-# Clustering the Ingredients Used in the TV Show "Chopped"
+# Creating a Chopped Mystery Basket Generator and Ingredient Recommender
 
 ## Project 4 at Metis
 
