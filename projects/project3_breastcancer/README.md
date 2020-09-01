@@ -33,6 +33,7 @@
 - Import the fit logistic regression model, which was saved through pickling
 - Deployment of the model on Flask
 - Predict benign/malignant tumor using user-inputs of tumor characteristics
+- The app has also been made available at <a href="https://breast-cancer-tumor-classifer.herokuapp.com/" target="_blank">https://breast-cancer-tumor-classifer.herokuapp.com/</a>
 
 #### 4) Access project3_breastcancer.pdf in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project3_breastcancer/reports" target="_blank">reports folder</a> to follow the presentation deck
 
