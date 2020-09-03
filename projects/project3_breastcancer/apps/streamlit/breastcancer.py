@@ -13,7 +13,7 @@ st.beta_set_page_config(
     page_title="Breast Cancer Tumor Classifier",
     page_icon=":clipboard:",
     layout="centered",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
 )
 # streamlit outline
 st.title("Breast Cancer Tumor Classifier")
