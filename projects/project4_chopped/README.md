@@ -16,7 +16,7 @@
 
 #### 1) Access project4_chopped.ipynb in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project4_chopped/notebooks" target="_blank">notebooks folder</a> to follow data analysis and modeling
 
-- Proprocessing text using NLTK
+- Preprocessing text using NLTK
 - Word vectorization using word2vec
 - Model selection for unsupervised learning: k-means clustering, hierarchical clustering
 - Recommendation system for randomly generated basket
@@ -27,7 +27,7 @@
 - K-means clustering optimal k selection using silhouette score
 - Separating out the individual items to their respective clusters
 
-#### 3) Access the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project4_chopped/src/models" target="_blank">streamlit folder</a> to test out a local Streamlit web app
+#### 3) Access the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project4_chopped/streamlit" target="_blank">streamlit folder</a> to test out a local Streamlit web app
 
 - Import the clusters, pickled from the notebook
 - Deployment of the "Chopped Basket Generator" on Streamlit
