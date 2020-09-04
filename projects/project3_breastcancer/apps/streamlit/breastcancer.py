@@ -93,7 +93,7 @@ st.sidebar.markdown(
     "  \n"
     "The ROC/AUC score was `0.99` and the F1 score was `0.98`.  \n"
     "  \n"
-    "_Read the in-depth analysis in my [blog post](https://eunchanity.github.io/breast-cancer/)_"
+    "_Read the in-depth analysis in my [blog post](https://eunchanity.github.io/breast-cancer/)._"
 )
 st.sidebar.subheader("Terminology")
 st.sidebar.markdown(
