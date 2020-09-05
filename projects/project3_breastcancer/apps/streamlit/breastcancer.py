@@ -18,11 +18,7 @@ st.beta_set_page_config(
 # streamlit outline
 st.title("Breast Cancer Tumor Classifier")
 st.markdown("---")
-# display of popularity meter and number
-status_text = st.text("The tumor is determined to be a:")
-diagnosis_display = st.empty()
 
-st.markdown("---")
 st.subheader("Adjust the Values to Check the Diagnosis:")
 st.text("")
 
@@ -72,12 +68,14 @@ def benign_malignant(amounts, model=my_model):
     # make a prediction
     prediction = my_model.predict(input_df)[0]
     # return a message
-    message_array = ["Benign Tumor", "Malignant Tumor"]
+    message_array = ["benign tumor", "malignant tumor"]
     return message_array[prediction]
 
 
+# display of popularity meter and number
 final_message = benign_malignant(np.array(amounts).reshape(1, -1))
-diagnosis_display.markdown(f"**{final_message}**")
+st.subheader("Check Your Result Below:")
+status_text = st.markdown(f"The tumor is determined to be a **{final_message}**.")
 
 # sidebar
 st.sidebar.title("About This App")
@@ -110,7 +108,7 @@ st.sidebar.markdown(
 
 st.sidebar.subheader("References")
 st.sidebar.markdown(
-    "Dataset Used: [Breast Cancer Wisconsin (Original) Data Set](hhttps://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(original))"
+    "Dataset Used: [Breast Cancer Wisconsin (Original) Data Set](https://www.kaggle.com/salihacur/breastcancerwisconsin)"
 )
 st.sidebar.markdown("---")
 
