@@ -7,10 +7,10 @@
 **Overview**:
 
 - Acquire and process the speech-emotion audio dataset
-- Create feature vectors for each gender_emotion label
+- Create feature vectors for each gender-emotion label
 - Train a CNN model on various hyperparameters to optimize accuracy
 - Test the CNN model on new audio files
-- Create a "Speech Emotion Interpreter" app using Streamlit that processes input audio and returns speech emotion, speaker gender, and speech transcription
+- Create a "Speech Emotion Interpreter" app using Streamlit that processes input audio and returns speech emotion and speaker gender. _Speech transcription is in the app's code but could not be implemented due to Streamlit's limitations._
 
 ### Setup
 

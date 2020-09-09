@@ -86,7 +86,12 @@ if audio_file is not None:
     st.write(f"The person that is speaking to you is emotionally **{split[1]}**.")
 
     # speech to text
-    r = sr.Recognizer()
+    # r = sr.Recognizer()
+    # audio = sr.AudioFile('path/wav_file.wav')
+    # with audio as source:
+    #     speech_recognition = r.record(source)
+
+    # r.recognize_google(speech)
 
 # inspirational quote
 st.markdown("---")
@@ -101,7 +106,9 @@ st.markdown(
 # sidebar
 st.sidebar.title("About This App")
 st.sidebar.markdown(
-    "This app processes input audio and returns the speech emotion, speaker gender, and speech transcription.  \n"
+    "This app processes input audio (.wav) and returns the speech emotion and speaker gender.  \n"
+    "  \n"
+    "_Speech transcription is in the app's code but could not be implemented due to Streamlit's limitations._  \n"
     "  \n"
     "The goal of this app is to create an alert system for hearing-impaired individuals that may need assistance in understanding speech intent and emotion."
 )
