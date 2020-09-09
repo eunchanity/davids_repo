@@ -33,11 +33,13 @@
 
 - Import the model, model weights, and labels from notebook
 - Deployment of the "Speech Emotion Interpreter" on Streamlit
+- The app has also been made available at <a href="https://speech-emotion-interpreter.herokuapp.com" target="_blank">https://speech-emotion-interpreter.herokuapp.com</a>
 
 #### 4) Access project5_speech_emotion.pdf in the <a href="https://github.com/eunchanity/davids_repo/tree/master/projects/project5_speech_emotion/reports" target="_blank">reports folder</a> to follow the presentation deck
 
 - Presentation of model creation and model outputs
 - Implications of the model's results
 - Additional considerations
+- The presentation can also be followed in my blog: <a href="https://eunchanity.github.io/speech-emotion/" target="_blank">Interpreting Speech Emotion for the Hearing-Impaired</a><br/>
 
 ---
