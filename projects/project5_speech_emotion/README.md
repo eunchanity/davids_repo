@@ -2,7 +2,7 @@
 
 ## Project 5 at Metis
 
-**Objective**: Use a convoluted neural network (CNN) model to classify speech emotion and speaker gender. Create an app that processes input audio and notifies user of speech emotion, speaker gender, and speech transcription.
+**Objective**: Use a convolutional neural network (CNN) model to classify speech emotion and speaker gender. Create an app that processes input audio and notifies user of speech emotion, speaker gender, and speech transcription.
 
 **Overview**:
 
